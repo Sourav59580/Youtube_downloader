@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Video download</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid pl-0 text-center">
+        <div class="row d-md-block d-none">
+            <div class="col-4" style="background: #1AEBB6;height: 100vh;"></div>
+            <div class="col-8"></div>
+        </div>
+        <div class="container shadow-lg" style="min-height: 75vh;position: absolute; z-index: 10000;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-8 px-4 py-4">
+
+                    <div class="mt-4">
+                        <form class="url-from">
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text border-0 px-4 text-light" style="background-color:#30f250;"><i class="fa fa-plus"></i></span>
+                                </div>
+                                <input type="text" name="url" id="url" placeholder="Copy and paste link here." class="form-control form-control-lg border-0 bg-light shadow-sm" required>
+                            </div>
+                            <button class="btn px-4 text-light shadow-sm mb-4" type="submit" style="left:45%;background-color:#007AFF"><i class="fa fa-cloud-download  mr-2"></i>Get
+                                link video</button>
+                        </form>
+                    </div>
+
+                    <div class="container bg-white shadow-sm">
+                        <div class="table-responsive-md">
+                            <table class="table">
+
+                                <thead>
+                                    <tr>
+                                        <th>Resolution</th>
+                                        <th>Categories</th>
+                                        <th>Size</th>
+                                        <th>Link download</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="d-none video360">
+                                        <td>360</td>
+                                        <td>MP4</td>
+                                        <td>Unknown</td>
+                                        <td><a class="btn btn-sm px-3 text-light shadow-sm v360" style="background-color:#0ceb31"><i
+                                            class="fa fa-cloud-download  mr-2"></i>Download video</a></td>
+                                    </tr>
+
+                                    <tr class="d-none video720">
+                                        <td>720</td>
+                                        <td>MP4</td>
+                                        <td>Unknown</td>
+                                        <td><a class="btn btn-sm px-3 text-light shadow-sm v720" style="background-color:#0ceb31"><i
+                                                class="fa fa-cloud-download  mr-2"></i>Download video</a></td>
+                                    </tr>
+
+                                </tbody>
+                                <tfoot class="d-none">
+                                    <tr>
+                                        <td><i class="fa fa-spinner fa-spin" style="font-size:32px"></i></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $(".url-from").submit(function(e) {
+                e.preventDefault();
+                var url = $("#url").val();
+                $.ajax({
+                    method: "POST",
+                    url: "/video360",
+                    data: {
+                        url: url
+                    },
+                    beforeSend: function() {
+                        $("tfoot").removeClass('d-none');
+                    },
+                    success: function(response) {
+                        $("tfoot").addClass('d-none');
+                        $(".video360").removeClass("d-none");
+                        $(".v360").attr("href", response);
+
+                        $.ajax({
+                            method: "POST",
+                            url: "/video720",
+                            data: {
+                                url: url
+                            },
+                            beforeSend: function() {
+                                $("tfoot").removeClass('d-none');
+                            },
+                            success: function(response) {
+                                $("tfoot").addClass('d-none');
+                                $(".video720").removeClass("d-none");
+                                $(".v720").attr("href", response);
+                            }
+                        })
+                    }
+                })
+            })
+        });
+    </script>
+</body>
+
+</html>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        @media(max-width: 368px) {
+            .heading {
+                font-size: 20px;
+            }
+
+            .para {
+                font-size: 30px;
+            }
+        }
+
+        .font-Yanone {
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .font-Hyeon {
+            font-family: 'Russo One', sans-serif;
+        }
+
+        .search {
+            border-top: none;
+            border-left: 0;
+            border-right: 0;
+
+        }
+
+        .search:focus {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        .search-btn {
+            background-color: #6a11cb;
+            color: white;
+        }
+
+        .footer {
+            background-color: #273036;
+            height: 100px;
+        }
+        .doption{
+            width:50px;
+            height:50px;
+            border:1px solid #0ceb31;
+            border-radius:50%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand font-Hyeon" href="/">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link font-Yanone" href="/">Youtube video download</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-Yanone" href="#">Instagram download</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-Yanone" href="#">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-Yanone" href="#">Privacy policy</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container header mt-5">
+        <div class="row">
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <h2 class="font-Hyeon heading">YouTube</h2>
+                    <h1 class="font-Hyeon para">Download and Save Videos</h1>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <img src="http://127.0.0.1:3000/images/poster.svg" class="w-75 d-md-block d-none">
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 bg-white shadow-lg p-3" style="min-height: 80px;border-radius:50px">
+
+                <form class="url-from">
+                    <div class="row">
+                        <div class="col-md-9 pl-5">
+                            <input type="text" class="form-control search" placeholder="Paste your video link here"
+                                id="url">
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <button class="btn search-btn mt-md-0 mt-4" type="submit"><i
+                                    class="fa fa-cloud-download  mr-2"></i>Get
+                                link video</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+    <div class="container bg-white shadow-lg d-none video-container" style="margin-top: 90px;">
+        <div class="table-responsive-md">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Resolution</th>
+                        <th>Categories</th>
+                        <th>Size</th>
+                        <th>Link download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="d-none video360">
+                        <td>360</td>
+                        <td>MP4</td>
+                        <td>Unknown</td>
+                        <td><a class="btn btn-sm px-3 text-light shadow-sm v360" style="background-color:#0ceb31"><i
+                                    class="fa fa-cloud-download  mr-2"></i>Download video</a></td>
+                    </tr>
+
+                    <tr class="d-none video720">
+                        <td>720</td>
+                        <td>MP4</td>
+                        <td>Unknown</td>
+                        <td><a class="btn btn-sm px-3 text-light shadow-sm v720" style="background-color:#0ceb31"><i
+                                    class="fa fa-cloud-download  mr-2"></i>Download video</a></td>
+                    </tr>
+
+                    <tr class="d-none audio">
+                        <td>144k</td>
+                        <td>MP3/Webm</td>
+                        <td>Unknown</td>
+                        <td><a class="btn btn-sm px-3 text-light shadow-sm a144" download="download"
+                                style="background-color:#0ceb31"><i class="fa fa-cloud-download  mr-2"></i>Download
+                                music</a></td>
+                    </tr>
+
+                </tbody>
+                <tfoot class="d-none">
+                    <tr>
+                        <td><i class="fa fa-spinner fa-spin" style="font-size:32px"></i></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0 mt-5">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#273036" fill-opacity="1"
+                d="M0,160L48,176C96,192,192,224,288,229.3C384,235,480,213,576,192C672,171,768,149,864,160C960,171,1056,213,1152,197.3C1248,181,1344,107,1392,69.3L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+            </path>
+        </svg>
+    </div>
+
+    <div class="container">
+        <h2 class="text-center font-Yanone">How to download YouTube video online?</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body py-3">
+                        <div class='mx-auto d-flex justify-content-center align-items-center doption mb-3'><i class="fa fa-copy fa-2x" style="color:#0ceb31"></i></div>
+                        <h4 class="font-Yanone text-center">Copy YouTube URL</h4>
+                        <p>Copy your video URL from YouTube that you need to download. You can use Ctrl+C or with the
+                            context menu.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body py-3">
+                        <div class='mx-auto d-flex justify-content-center align-items-center doption mb-2'><i class="fa fa-mouse-pointer fa-2x" style="color:#0ceb31"></i></div>
+                        <h4 class="font-Yanone text-center">Paste in search field</h4>
+                        <p class="mb-5">Paste YouTube video URL in the search field and click 'Search'. Use Ctrl+V.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class='mx-auto d-flex justify-content-center align-items-center doption mb-3'><i class="fa fa-download fa-2x" style="color:#0ceb31"></i></div>
+                        <h4 class="font-Yanone text-center">Download Video</h4>
+                        <p>You will get a list of files for download, video, and audio. Click the 'Download' button to start downloading the file.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="container-fluid px-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#273036" fill-opacity="1"
+                d="M0,160L48,176C96,192,192,224,288,229.3C384,235,480,213,576,192C672,171,768,149,864,160C960,171,1056,213,1152,197.3C1248,181,1344,107,1392,69.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    </div>
+    <div class="container-fluid footer text-center">
+        <p style="color:rgb(5, 219, 51)"><span>YouTube to MP3</span> <span class="ml-4">YouTube to MP4</span></p>
+        <p class="text-light">© 2020 YouTube Downloader</p>
+
+    </div>
+
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $(".url-from").submit(function (e) {
+                e.preventDefault();
+                $(".video-container").removeClass("d-none");
+                var url = $("#url").val();
+                $.ajax({
+                    method: "POST",
+                    url: "/video360",
+                    data: {
+                        url: url
+                    },
+                    beforeSend: function () {
+                        $("tfoot").removeClass('d-none');
+                    },
+                    success: function (response) {
+                        $("tfoot").addClass('d-none');
+                        $(".video360").removeClass("d-none");
+                        $(".v360").attr("href", response);
+
+                        $.ajax({
+                            method: "POST",
+                            url: "/video720",
+                            data: {
+                                url: url
+                            },
+                            beforeSend: function () {
+                                $("tfoot").removeClass('d-none');
+                            },
+                            success: function (response) {
+                                $("tfoot").addClass('d-none');
+                                $(".video720").removeClass("d-none");
+                                $(".v720").attr("href", response);
+                            }
+                        })
+
+                        $.ajax({
+                            method: "POST",
+                            url: "/audio144",
+                            data: {
+                                url: url
+                            },
+                            beforeSend: function () {
+                                $("tfoot").removeClass('d-none');
+                            },
+                            success: function (response) {
+                                $("tfoot").addClass('d-none');
+                                $(".audio").removeClass("d-none");
+                                $(".a144").attr("href", response);
+                            }
+                        })
+                    }
+                })
+            })
+        });
+    </script>
+
+</body>
+
+</html>
